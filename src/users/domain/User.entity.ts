@@ -20,7 +20,7 @@ export class User {
     zip: string,
     city: string
   ) {
-    this.validateUser(username, email, password, address, zip, city);
+    this.validateUser(username, address, city);
     this.id = id;
     this.username = username;
     this.email = new Email(email);
@@ -30,28 +30,12 @@ export class User {
     this.city = city;
   }
 
-  private validateUser(
-    username: string,
-    email: string,
-    password: string,
-    address: string,
-    zip: string,
-    city: string
-  ): void {
+  private validateUser(username: string, address: string, city: string): void {
     if (!username) {
       throw new Error("Username cannot be empty");
     }
-    if (!email) {
-      throw new Error("Email cannot be empty");
-    }
-    if (!password) {
-      throw new Error("Password cannot be empty");
-    }
     if (!address) {
       throw new Error("Address cannot be empty");
-    }
-    if (!zip) {
-      throw new Error("Zip cannot be empty");
     }
     if (!city) {
       throw new Error("City cannot be empty");

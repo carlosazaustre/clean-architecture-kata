@@ -7,6 +7,10 @@ export class Email {
   }
 
   private validateEmail(email: string): void {
+    if (!email) {
+      throw new Error("Email cannot be empty");
+    }
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       throw new Error("Invalid email format");
