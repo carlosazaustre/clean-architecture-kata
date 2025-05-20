@@ -10,11 +10,9 @@
 - El email debe de ser un email válido.
 - La password debe ser minimo 8 caracteres, al menos una letra y un número.
 - La app debería mostrar un error si se intenta añadir dos usuarios con el mismo email.
-
-  **Bola Extra**:
-
-- Añade la dirección como parte de la información necesaria para el usuario (dirección, código postal, ciudad).
-- Sólo puede existir un usuario por dominio (1 usuario con gmail, etc...).
+- **Bola Extra**:
+  - Añade la dirección como parte de la información necesaria para el usuario (dirección, código postal, ciudad).
+  - Sólo puede existir un usuario por dominio (1 usuario con gmail, etc...).
 
 ### Plataforma de desarrollo
 
@@ -29,7 +27,7 @@
 
 ## Parte 1 - Entidades
 
-- Definir entidades y value objects
+- Definir entidades y value objects.
 - Las reglas empresariales deben estar testeadas creando test unitarios.
 - Reglas:
 
@@ -40,6 +38,5 @@
   - Dos intancias de una misma password deben ser iguales en una comparación.
   - Dos intancias de user, con el mismo id, deben ser iguales en una comparación
 
-  **Bola Extra**:
-
+- **Bola Extra**:
   - Añade la dirección como parte de la información necesaria para el usuario (dirección, código postal, ciudad).

@@ -8,10 +8,27 @@ export class User {
   private readonly password: Password;
 
   constructor(id: string, username: string, email: string, password: string) {
+    this.validateUser(username, email, password);
     this.id = id;
     this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
+  }
+
+  private validateUser(
+    username: string,
+    email: string,
+    password: string
+  ): void {
+    if (!username) {
+      throw new Error("Username cannot be empty");
+    }
+    if (!email) {
+      throw new Error("Email cannot be empty");
+    }
+    if (!password) {
+      throw new Error("Password cannot be empty");
+    }
   }
 
   public getId(): string {
