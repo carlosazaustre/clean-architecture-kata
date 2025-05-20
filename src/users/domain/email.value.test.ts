@@ -1,4 +1,3 @@
-import { describe, expect, it } from "vitest";
 import { Email } from "./email.value";
 
 describe("Email Value Object", () => {

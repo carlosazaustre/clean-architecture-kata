@@ -1,5 +1,4 @@
 import { Password } from "./password.value";
-import { describe, expect, it } from "vitest";
 
 describe("Password Value Object", () => {
   it("should create a valid password", () => {

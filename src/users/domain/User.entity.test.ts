@@ -1,5 +1,4 @@
 import { User } from "./User.entity";
-import { describe, it, expect } from "vitest";
 
 describe("User Entity", () => {
   it("should create a valid user", () => {
