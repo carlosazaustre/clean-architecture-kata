@@ -21,7 +21,7 @@ export class User {
     city: string
   ) {
     this.validateUser(username, email, password, address, zip, city);
-    this.id = id;
+    this.id = id || crypto.randomUUID();
     this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
@@ -60,6 +60,10 @@ export class User {
 
   public getId(): string {
     return this.id;
+  }
+
+  public getEmail(): string {
+    return this.email.value;
   }
 
   public equals(other: User): boolean {
