@@ -21,13 +21,13 @@ export class User {
     city: string
   ) {
     this.validateUser(username, address, city);
-    this.id = id;
-    this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
-    this.address = address;
     this.zip = new Zip(zip);
+    this.username = username;
+    this.address = address;
     this.city = city;
+    this.id = id || crypto.randomUUID();
   }
 
   private validateUser(username: string, address: string, city: string): void {
