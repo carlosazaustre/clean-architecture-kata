@@ -12,9 +12,6 @@ describe("User Entity", () => {
       "city"
     );
     expect(user.getId()).toBe("1");
-    expect(user.getUsername()).toBe("username");
-    expect(user.getEmail()).toBe("username@mail.com");
-    expect(user.getPassword()).toBe("password8");
   });
 
   it("should throw an error if username is empty", () => {
@@ -66,7 +63,7 @@ describe("User Entity", () => {
           "28001",
           "city"
         )
-    ).toThrow("Street cannot be empty");
+    ).toThrow("Address cannot be empty");
   });
 
   it("should throw an error if zip is empty", () => {

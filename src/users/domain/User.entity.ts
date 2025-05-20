@@ -1,6 +1,5 @@
 import { Email } from "./email.value";
 import { Password } from "./password.value";
-import { Address } from "./address.entity";
 import { Zip } from "./zip.value";
 
 export class User {
@@ -8,30 +7,34 @@ export class User {
   private readonly username: string;
   private readonly email: Email;
   private readonly password: Password;
-  private readonly address: Address;
+  private readonly address: string;
+  private readonly zip: Zip;
+  private readonly city: string;
 
   constructor(
     id: string,
     username: string,
     email: string,
     password: string,
-    street: string,
+    address: string,
     zip: string,
     city: string
   ) {
-    this.validateUser(username, email, password, street, zip, city);
+    this.validateUser(username, email, password, address, zip, city);
     this.id = id;
     this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
-    this.address = new Address(street, new Zip(zip).value, city);
+    this.address = address;
+    this.zip = new Zip(zip);
+    this.city = city;
   }
 
   private validateUser(
     username: string,
     email: string,
     password: string,
-    street: string,
+    address: string,
     zip: string,
     city: string
   ): void {
@@ -44,8 +47,8 @@ export class User {
     if (!password) {
       throw new Error("Password cannot be empty");
     }
-    if (!street) {
-      throw new Error("Street cannot be empty");
+    if (!address) {
+      throw new Error("Address cannot be empty");
     }
     if (!zip) {
       throw new Error("Zip cannot be empty");
@@ -57,22 +60,6 @@ export class User {
 
   public getId(): string {
     return this.id;
-  }
-
-  public getUsername(): string {
-    return this.username;
-  }
-
-  public getEmail(): string {
-    return this.email.value;
-  }
-
-  public getPassword(): string {
-    return this.password.value;
-  }
-
-  public getAddress(): Address {
-    return this.address;
   }
 
   public equals(other: User): boolean {
