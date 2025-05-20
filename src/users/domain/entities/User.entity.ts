@@ -20,7 +20,9 @@ export class User {
     zip: string,
     city: string
   ) {
-    this.validateUser(username, address, city);
+    this.validateUser(username, email, password);
+    this.id = id || crypto.randomUUID();
+    this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
     this.zip = new Zip(zip);
@@ -44,6 +46,10 @@ export class User {
 
   public getId(): string {
     return this.id;
+  }
+
+  public getEmail(): string {
+    return this.email.value;
   }
 
   public equals(other: User): boolean {
