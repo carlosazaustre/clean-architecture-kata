@@ -25,33 +25,19 @@ export class User {
     this.username = username;
     this.email = new Email(email);
     this.password = new Password(password);
-    this.address = address;
     this.zip = new Zip(zip);
+    this.username = username;
+    this.address = address;
     this.city = city;
+    this.id = id || crypto.randomUUID();
   }
 
-  private validateUser(
-    username: string,
-    email: string,
-    password: string,
-    address: string,
-    zip: string,
-    city: string
-  ): void {
+  private validateUser(username: string, address: string, city: string): void {
     if (!username) {
       throw new Error("Username cannot be empty");
     }
-    if (!email) {
-      throw new Error("Email cannot be empty");
-    }
-    if (!password) {
-      throw new Error("Password cannot be empty");
-    }
     if (!address) {
       throw new Error("Address cannot be empty");
-    }
-    if (!zip) {
-      throw new Error("Zip cannot be empty");
     }
     if (!city) {
       throw new Error("City cannot be empty");

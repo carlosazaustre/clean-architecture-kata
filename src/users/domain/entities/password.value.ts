@@ -7,6 +7,10 @@ export class Password {
   }
 
   private validatePassword(password: string): void {
+    if (!password) {
+      throw new Error("Password cannot be empty");
+    }
+
     const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
     if (!passwordRegex.test(password)) {
       throw new Error(

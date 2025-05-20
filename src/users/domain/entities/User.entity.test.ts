@@ -14,6 +14,21 @@ describe("User Entity", () => {
     expect(user.getId()).toBe("1");
   });
 
+  it("should create a user with a random id if no id is provided", () => {
+    const user = new User(
+      "",
+      "username",
+      "username@email.com",
+      "password8",
+      "street",
+      "28001",
+      "city"
+    );
+    expect(user.getId()).toMatch(
+      /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/
+    );
+  });
+
   it("should throw an error if username is empty", () => {
     expect(
       () =>
