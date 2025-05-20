@@ -20,7 +20,7 @@ export class User {
     zip: string,
     city: string
   ) {
-    this.validateUser(username, email, password, address, zip, city);
+    this.validateUser(username, email, password);
     this.id = id || crypto.randomUUID();
     this.username = username;
     this.email = new Email(email);
