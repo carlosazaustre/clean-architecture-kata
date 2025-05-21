@@ -8,6 +8,10 @@ export class TerminalView implements View {
 
   constructor(private rl: readline.Interface) {}
 
+  public async start() {
+    this.presenter.loadUsersList();
+  }
+
   public showUsers(users: User[]): void {
     console.log("Users:");
     users.forEach((user) => {
