@@ -12,15 +12,14 @@ export class AddNewUser {
     }
 
     // Add new user
-    const user = new User(
-      crypto.randomUUID(),
-      userData.name,
-      userData.email,
-      userData.password,
-      userData.address,
-      userData.zip,
-      userData.city
-    );
+    const user = new User({
+      username: userData.name,
+      email: userData.email,
+      password: userData.password,
+      address: userData.address,
+      zip: userData.zip,
+      city: userData.city,
+    });
     const newUser = this.userRepository.addUser(user);
     return newUser;
   }

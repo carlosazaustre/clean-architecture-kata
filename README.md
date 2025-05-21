@@ -40,3 +40,17 @@
 
 - **Bola Extra**:
   - Añade la dirección como parte de la información necesaria para el usuario (dirección, código postal, ciudad).
+
+## Parte 2 - Casos de uso
+
+- Definir los casos de uso, repositorio para:
+  - Mostrar lista de usuarios.
+  - Añadir un usuario nuevo.
+- Las reglas de aplicación deben estar testeadas creando test unitarios.
+- En los tests unitarios se pueden utilizar objetos manuales
+- Reglas:
+
+  - La aplicación no debe permitir añadir 2 usuarios con el mismo email.
+
+- **Bola Extra**:
+  - Solo puede existir un usuario por dominio (1 usuario con gmail, etc...).
