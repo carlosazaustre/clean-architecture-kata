@@ -2,6 +2,16 @@ import { Email } from "./email.value";
 import { Password } from "./password.value";
 import { Zip } from "./zip.value";
 
+export interface UserProps {
+  id?: string;
+  username: string;
+  email: string;
+  password: string;
+  address: string;
+  zip: string;
+  city: string;
+}
+
 export class User {
   private readonly id: string;
   private readonly username: string;
@@ -11,16 +21,16 @@ export class User {
   private readonly zip: Zip;
   private readonly city: string;
 
-  constructor(
-    id: string,
-    username: string,
-    email: string,
-    password: string,
-    address: string,
-    zip: string,
-    city: string
-  ) {
-    this.validateUser(username, email, password);
+  constructor({
+    id,
+    username,
+    email,
+    password,
+    address,
+    zip,
+    city,
+  }: UserProps) {
+    this.validateUser(username, address, city);
     this.id = id || crypto.randomUUID();
     this.username = username;
     this.email = new Email(email);
