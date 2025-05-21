@@ -14,7 +14,7 @@ export interface UserProps {
 
 export class User {
   private readonly id: string;
-  private readonly username: string;
+  public readonly username: string;
   private readonly email: Email;
   private readonly password: Password;
   private readonly address: string;
@@ -36,22 +36,20 @@ export class User {
     this.email = new Email(email);
     this.password = new Password(password);
     this.zip = new Zip(zip);
-    this.username = username;
     this.address = address;
     this.city = city;
-    this.id = id || crypto.randomUUID();
   }
 
   private validateUser(username: string, address: string, city: string): void {
     if (!username) {
       throw new Error("Username cannot be empty");
     }
-    if (!address) {
-      throw new Error("Address cannot be empty");
-    }
-    if (!city) {
-      throw new Error("City cannot be empty");
-    }
+    // if (!address) {
+    //   throw new Error("Address cannot be empty");
+    // }
+    // if (!city) {
+    //   throw new Error("City cannot be empty");
+    // }
   }
 
   public getId(): string {
