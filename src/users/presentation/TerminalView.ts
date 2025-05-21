@@ -24,6 +24,10 @@ export class TerminalView implements View {
     this.presenter.onAddInput();
   }
 
+  public showError(message: string): void {
+    console.error("Error:", message);
+  }
+
   public requestUsername(): Promise<string> {
     return new Promise((resolve) => {
       this.rl.question("Enter username: ", (username) => {

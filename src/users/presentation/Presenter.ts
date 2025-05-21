@@ -10,6 +10,7 @@ export interface View {
   requestAddress(): Promise<string>;
   requestZip(): Promise<string>;
   requestCity(): Promise<string>;
+  showError(message: string): void;
 }
 
 export class Presenter {
@@ -32,7 +33,22 @@ export class Presenter {
     const zip = await this.view.requestZip();
     const city = await this.view.requestCity();
 
-    this.addNewUser.execute({ username, password, email, address, zip, city });
+    try {
+      await this.addNewUser.execute({
+        username,
+        password,
+        email,
+        address,
+        zip,
+        city,
+      });
+    } catch (error: unknown) {
+      let errorMessage = "Unknown error";
+      if (error && typeof error === "object" && "message" in error) {
+        errorMessage = (error as { message: string }).message;
+      }
+      this.view.showError(errorMessage);
+    }
     this.loadUsersList();
   }
 }
