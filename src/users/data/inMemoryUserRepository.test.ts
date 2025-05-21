@@ -52,7 +52,6 @@ describe("InMemoryUserRepository", () => {
 
     const foundUser = userRepository.findByEmail(userEmail);
     expect(foundUser).toEqual(user);
-    expect(userRepository.findByEmail(userEmail)).toEqual(user);
   });
 
   it("should return null if user not found by email", () => {
