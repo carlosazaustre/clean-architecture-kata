@@ -54,3 +54,11 @@
 
 - **Bola Extra**:
   - Solo puede existir un usuario por dominio (1 usuario con gmail, etc...).
+
+## Parte 3 - UI
+
+- Crear una aplicación de consola que invoque los casos de uso.
+- Usar MVP
+- Definir el presenter y la UI
+- El presenter debe estar condicionado por la UI que adapta
+- Define un service locator que sirva de composition root para resolver dependencias usadas en la UI.
