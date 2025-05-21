@@ -15,7 +15,7 @@ export class InMemoryUserRepository implements UserRepository {
   }
 
   findByEmail(email: Email): User | null {
-    const user = this.users.find((user) => user.getEmail() === email.value);
+    const user = this.users.find((user) => user.email.value === email.value);
     return user || null;
   }
 }

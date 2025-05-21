@@ -15,7 +15,7 @@ export class TerminalView implements View {
   public showUsers(users: User[]): void {
     console.log("Users:");
     users.forEach((user) => {
-      console.log(`- ${user.username} (${user.getEmail()})`);
+      console.log(`- ${user.username} (${user.email.value})`);
     });
     console.log("Total users:", users.length);
 

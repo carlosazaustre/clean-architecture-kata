@@ -15,7 +15,7 @@ export interface UserProps {
 export class User {
   private readonly id: string;
   public readonly username: string;
-  private readonly email: Email;
+  public readonly email: Email;
   private readonly password: Password;
   private readonly address: string;
   private readonly zip: Zip;
@@ -54,10 +54,6 @@ export class User {
 
   public getId(): string {
     return this.id;
-  }
-
-  public getEmail(): string {
-    return this.email.value;
   }
 
   public equals(other: User): boolean {
