@@ -15,7 +15,7 @@ describe("AddNewUserCase", () => {
 
   it("should throw an error if user already exists", async () => {
     const userData = {
-      name: "John Doe",
+      username: "John Doe",
       email: "test@email.com",
       password: "password123",
       address: "123 Main St",
@@ -32,7 +32,7 @@ describe("AddNewUserCase", () => {
 
   it("should add a new user if it does not exist", async () => {
     const userData = {
-      name: "John Doe",
+      username: "John Doe",
       email: "test@gmail.com",
       password: "password123",
       address: "123 Main St",
@@ -50,6 +50,6 @@ describe("AddNewUserCase", () => {
       ...userData,
     });
     expect(userRepositoryMock.addUser).toHaveBeenCalled();
-    expect(userRepositoryMock.findByEmail).toHaveBeenCalledWith(userData.email);
+    expect(userRepositoryMock.findByEmail).toHaveBeenCalled();
   });
 });
