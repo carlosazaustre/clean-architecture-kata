@@ -2,7 +2,7 @@ export class Zip {
   private readonly zip: string;
 
   constructor(zip: string) {
-    // this.validateZip(zip);
+    this.validateZip(zip);
     this.zip = zip;
   }
 

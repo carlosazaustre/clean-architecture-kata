@@ -15,7 +15,9 @@ export class TerminalView implements View {
   public showUsers(users: User[]): void {
     console.log("Users:");
     users.forEach((user) => {
-      console.log(`- ${user.username} (${user.email.value})`);
+      console.log(
+        `- ${user.username} (${user.email.value}) - ${user.address}, ${user.zip.value}, ${user.city}`
+      );
     });
     console.log("Total users:", users.length);
 
@@ -42,6 +44,30 @@ export class TerminalView implements View {
     return new Promise((resolve) => {
       this.rl.question("Enter email: ", (email) => {
         resolve(email);
+      });
+    });
+  }
+
+  public requestAddress(): Promise<string> {
+    return new Promise((resolve) => {
+      this.rl.question("Enter address: ", (address) => {
+        resolve(address);
+      });
+    });
+  }
+
+  public requestZip(): Promise<string> {
+    return new Promise((resolve) => {
+      this.rl.question("Enter zip: ", (zip) => {
+        resolve(zip);
+      });
+    });
+  }
+
+  public requestCity(): Promise<string> {
+    return new Promise((resolve) => {
+      this.rl.question("Enter city: ", (city) => {
+        resolve(city);
       });
     });
   }

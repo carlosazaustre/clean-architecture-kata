@@ -17,9 +17,9 @@ export class User {
   public readonly username: string;
   public readonly email: Email;
   private readonly password: Password;
-  private readonly address: string;
-  private readonly zip: Zip;
-  private readonly city: string;
+  public readonly address: string;
+  public readonly zip: Zip;
+  public readonly city: string;
 
   constructor({
     id,
@@ -44,12 +44,12 @@ export class User {
     if (!username) {
       throw new Error("Username cannot be empty");
     }
-    // if (!address) {
-    //   throw new Error("Address cannot be empty");
-    // }
-    // if (!city) {
-    //   throw new Error("City cannot be empty");
-    // }
+    if (!address) {
+      throw new Error("Address cannot be empty");
+    }
+    if (!city) {
+      throw new Error("City cannot be empty");
+    }
   }
 
   public getId(): string {

@@ -7,6 +7,9 @@ export interface View {
   requestUsername(): Promise<string>;
   requestPassword(): Promise<string>;
   requestEmail(): Promise<string>;
+  requestAddress(): Promise<string>;
+  requestZip(): Promise<string>;
+  requestCity(): Promise<string>;
 }
 
 export class Presenter {
@@ -25,8 +28,11 @@ export class Presenter {
     const username = await this.view.requestUsername();
     const password = await this.view.requestPassword();
     const email = await this.view.requestEmail();
+    const address = await this.view.requestAddress();
+    const zip = await this.view.requestZip();
+    const city = await this.view.requestCity();
 
-    this.addNewUser.execute({ username, password, email });
+    this.addNewUser.execute({ username, password, email, address, zip, city });
     this.loadUsersList();
   }
 }
