@@ -14,12 +14,12 @@ export interface UserProps {
 
 export class User {
   private readonly id: string;
-  private readonly username: string;
-  private readonly email: Email;
+  public readonly username: string;
+  public readonly email: Email;
   private readonly password: Password;
-  private readonly address: string;
-  private readonly zip: Zip;
-  private readonly city: string;
+  public readonly address: string;
+  public readonly zip: Zip;
+  public readonly city: string;
 
   constructor({
     id,
@@ -36,10 +36,8 @@ export class User {
     this.email = new Email(email);
     this.password = new Password(password);
     this.zip = new Zip(zip);
-    this.username = username;
     this.address = address;
     this.city = city;
-    this.id = id || crypto.randomUUID();
   }
 
   private validateUser(username: string, address: string, city: string): void {
@@ -56,10 +54,6 @@ export class User {
 
   public getId(): string {
     return this.id;
-  }
-
-  public getEmail(): string {
-    return this.email.value;
   }
 
   public equals(other: User): boolean {
